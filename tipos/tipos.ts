@@ -1,5 +1,3 @@
-/*
-
 //Tipo implícito
 //No typescript o tipo da variável é implícito, uma vez recebido o tipo, mesmo que não declarada não muda
 let nome = 'Daniel'
@@ -60,7 +58,6 @@ console.log(Cor.Vermelho)
 console.log(Cor.Rosa, Cor.Marrom)
 console.log(Cor.Laranja, Cor.Amarelo, Cor.Verde)
 
-*/
 //Any
 //O any representa uma flexibilidade no tipo das variáveis
 let carro: any = 'Volvo'
