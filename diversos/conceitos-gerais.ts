@@ -51,7 +51,7 @@ type meuId = string | number //define o tipo (união de tipos)
 let meuId = ['Casa', 100] //exibe o valor da variável
 console.log(meuId)
 
-//enum - refernciar os valores de uma propriedade
+//enum - referenciar os valores de uma propriedade
 enum Tamanho {
   P = 'Pequeno',
   M = 'Médio',
@@ -150,8 +150,6 @@ const arr2 = ['Ola', 'Hey', 'Tudo bem!']
 variosArray(arr1)
 variosArray(arr2)
 
-*/
-
 //classes
 //propriedade = variável,
 //método = função
@@ -229,5 +227,46 @@ console.log(cayman)
 
 cayman.showMarca()
 
-//decorators (desmarcar no tsconfig experimentalDecorators)
+*/
+
+//decorators (desmarcar no tsconfig experimentalDecorators) - todo decorator tem uma função que retorna outra função
+
+//constructor decorator - tem a função de mudar algo na prgramação, seja uma função, classe, método...
+function ParamBasico() {
+  return function <T extends {new (...args: any[]): {}}>(constructor: T) {
+    return class extends constructor {
+      id = Math.random() //função js que gera numero aleatório
+      createdAt = new Date() //gera data automaticamente
+    }
+  }
+}
+
+//Para implementar a execução de um decorator usa-se @
+@ParamBasico()
+
+//exemplo para testar...
+//class Person {
+//  id
+//  nome
+//  createdAt
+
+//  constructor(nome: string, id: number | null, createdAt: string | number) {
+//    this.createdAt = createdAt
+//    this.id = id
+//    this.nome = nome
+//  }
+//}
+//const individuo = new Person ('Daniel', null, "")
+
+class Person {
+  nome
+
+  constructor(nome: string) {
+    this.nome = nome
+  }
+}
+
+const individuo = new Person ('Daniel')
+
+console.log(individuo)
 
